@@ -7,6 +7,7 @@ interface HeroProps {
 
 const LOGO_IMAGE = "/assets/brand/gomes-studio-logo.png";
 const LOGO_VIDEO_MP4 = "/assets/brand/gomes-studio-logo-anim.mp4";
+const LOGO_VIDEO_WEBM = "/assets/brand/gomes-studio-logo-anim.webm";
 
 export const Hero: React.FC<HeroProps> = () => {
   return (
@@ -102,6 +103,7 @@ export const BrandFilm: React.FC<HeroProps> = () => {
               aria-label="Vídeo comercial de apresentação da logo Gomes Studio"
             >
               <source src={LOGO_VIDEO_MP4} type="video/mp4" />
+              <source src={LOGO_VIDEO_WEBM} type="video/webm" />
               Seu navegador não suporta a reprodução deste vídeo.
             </video>
           </div>
