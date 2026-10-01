@@ -72,8 +72,8 @@ export const PROJECTS_DATA: ProjectItem[] = [
     relativeImagePath: '/assets/projects/briefing-gomes-studio.png',
     tags: ['Briefing Interativo', 'Diagnóstico Estratégico', 'Sob Medida', 'Online'],
     ctaLabel: 'PREENCHER BRIEFING',
-    href: 'https://lucasgomes3621-ui.github.io/Gomes-Studio-/',
-    liveUrl: 'https://lucasgomes3621-ui.github.io/Gomes-Studio-/',
+    href: 'https://gomes-studio-briefing.ai.studio/',
+    liveUrl: 'https://gomes-studio-briefing.ai.studio/',
     isExternal: true,
     clientType: 'Novos Parceiros & Empresas',
     highlightText: 'Briefing Oficial Online'

@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Direct WhatsApp Call to Action with <a> tag */}
           <a
             id="nav-whatsapp-cta"
-            href="https://lucasgomes3621-ui.github.io/Gomes-Studio-/"
+            href="https://gomes-studio-briefing.ai.studio/"
             target="_blank"
             rel="noopener noreferrer"
             className="action-glass action-glass-compact group hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-xs font-semibold"

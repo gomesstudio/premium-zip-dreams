@@ -8,7 +8,7 @@ interface ContactSectionProps {
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }) => {
-  const briefingUrl = 'https://lucasgomes3621-ui.github.io/Gomes-Studio-/';
+  const briefingUrl = 'https://gomes-studio-briefing.ai.studio/';
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [phone, setPhone] = useState('');

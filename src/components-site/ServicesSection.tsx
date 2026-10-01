@@ -8,7 +8,7 @@ interface ServicesSectionProps {
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectService }) => {
-  const briefingUrl = 'https://lucasgomes3621-ui.github.io/Gomes-Studio-/';
+  const briefingUrl = 'https://gomes-studio-briefing.ai.studio/';
 
   return (
     <section
