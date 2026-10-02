@@ -21,19 +21,19 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
+          <div className="mb-12 flex flex-col gap-5 text-center sm:mb-16 sm:text-left md:flex-row md:items-end md:justify-between md:gap-8">
+            <div className="min-w-0">
               <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#38BDF8] uppercase mb-3 block">
                 02 // PROJETOS SELECIONADOS
               </span>
               <h2
                 id="projetos-title"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+                className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
               >
                 Experiências criadas com precisão.
               </h2>
             </div>
-            <p className="text-[#94A3B8] text-base max-w-md font-normal">
+            <p className="mx-auto max-w-md text-left text-base font-normal leading-relaxed text-[#94A3B8] sm:mx-0 md:text-right">
               Algumas das experiências digitais que podemos criar para marcas que querem se destacar no mercado.
             </p>
           </div>
@@ -119,7 +119,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-[#94A3B8] leading-relaxed mb-6 flex-1">
+                <p className="mb-6 flex-1 text-left text-sm leading-relaxed text-[#94A3B8]">
                   {project.description}
                 </p>
 

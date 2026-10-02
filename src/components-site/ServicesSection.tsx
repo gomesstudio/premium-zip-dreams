@@ -18,13 +18,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
-          <div className="mb-16">
+          <div className="mb-12 text-center sm:mb-16 sm:text-left">
             <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#38BDF8] uppercase mb-3 block">
               03 // TIPOS DE PÁGINA
             </span>
             <h2
               id="servicos-title"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white max-w-2xl"
+              className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:mx-0 sm:text-4xl lg:text-5xl"
             >
               Escolha o nível ideal para o seu projeto.
             </h2>
@@ -37,11 +37,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
             <ScrollReveal key={service.number} delay={idx * 0.08} yOffset={20}>
               <div
                 id={`service-row-${service.number}`}
-                className="group py-8 sm:py-10 border-b border-white/[0.08] hover:bg-[#12151C]/70 px-4 sm:px-6 -mx-4 sm:-mx-6 rounded-lg transition-all duration-300"
+                className="group -mx-2 rounded-lg border-b border-white/[0.08] px-2 py-8 transition-all duration-300 hover:bg-[#12151C]/70 sm:-mx-6 sm:px-6 sm:py-10"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start lg:items-center">
                   {/* Number & Service Title */}
-                  <div className="lg:col-span-5 flex items-start gap-5">
+                  <div className="flex items-start gap-4 sm:gap-5 lg:col-span-5">
                     <span className="font-mono text-xl sm:text-2xl font-bold text-[#0066FF] group-hover:text-[#38BDF8] transition-colors">
                       {service.number}
                     </span>
@@ -57,13 +57,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
                   {/* Description Body */}
                   <div className="lg:col-span-4">
-                    <p className="text-sm sm:text-base text-[#94A3B8] leading-relaxed">
+                    <p className="max-w-prose text-left text-sm leading-relaxed text-[#94A3B8] sm:text-base">
                       {service.description}
                     </p>
                   </div>
 
                   {/* CTA Action Button with <a> tag */}
-                  <div className="lg:col-span-3 flex lg:justify-end">
+                  <div className="flex lg:col-span-3 lg:justify-end">
                     <a
                       id={`service-cta-${service.number}`}
                        href={briefingUrl}

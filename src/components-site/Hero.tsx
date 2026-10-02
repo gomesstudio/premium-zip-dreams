@@ -20,8 +20,8 @@ export const Hero: React.FC<HeroProps> = () => {
         <span className="hero-tech-cross hero-tech-cross-b" />
       </div>
 
-      <div className="relative z-10 flex w-full flex-1 flex-col items-center justify-center px-5 sm:px-10 lg:px-16 xl:px-24">
-        <div className="flex w-full flex-col items-center pt-8 text-center sm:pt-10 lg:pt-12">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="flex w-full flex-col items-center text-center">
           <p className="hero-kicker mb-5 font-mono text-[10px] font-semibold uppercase sm:mb-6 sm:text-xs">
             <span aria-hidden="true" />
             Presença digital para negócios
@@ -29,7 +29,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           <h1
             id="hero-title"
-            className="hero-title w-full text-[1.72rem] font-extrabold uppercase leading-[1.04] sm:text-[3.35rem] lg:text-[4.35rem]"
+            className="hero-title mx-auto w-full text-center text-[1.72rem] font-extrabold uppercase leading-[1.04] sm:text-[3.35rem] lg:text-[4.35rem]"
           >
             <span className="hero-title-line">Quem se apresenta melhor,</span>
             <span className="hero-title-line hero-title-accent">sai na frente.</span>
@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = () => {
 
           <p
             id="hero-subtitle"
-            className="hero-subtitle mt-6 max-w-2xl text-base leading-relaxed sm:mt-7 sm:text-lg lg:text-xl"
+            className="hero-subtitle mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed sm:mt-7 sm:text-lg lg:text-xl"
           >
             Landing Pages <span aria-hidden="true">·</span> Páginas Profissionais <span aria-hidden="true">·</span> Experiências Digitais
           </p>
@@ -75,7 +75,7 @@ export const BrandFilm: React.FC<HeroProps> = () => {
   return (
     <section
       id="video-apresentacao"
-      className="hero-premium hero-film relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-5 py-24 sm:px-10 lg:px-16 xl:px-24"
+      className="hero-premium hero-film relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8"
     >
       <div className="hero-tech-field pointer-events-none absolute inset-0" aria-hidden="true">
         <span className="hero-tech-cross hero-tech-cross-b" />

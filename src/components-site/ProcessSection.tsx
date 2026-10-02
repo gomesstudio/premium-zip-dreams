@@ -11,7 +11,7 @@ export const ProcessSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal>
-          <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
+          <div className="mx-auto mb-12 max-w-2xl text-center sm:mb-20">
             <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#38BDF8] uppercase mb-3 block">
               FLUXO DE CRIAÇÃO CLARO &amp; TRANSPARENTE
             </span>
@@ -39,7 +39,7 @@ export const ProcessSection: React.FC = () => {
                 <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#38BDF8] transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+                <p className="text-left text-xs leading-relaxed text-[#94A3B8] sm:text-sm">
                   {step.description}
                 </p>
 

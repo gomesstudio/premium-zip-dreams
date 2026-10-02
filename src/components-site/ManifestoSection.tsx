@@ -11,7 +11,7 @@ export const ManifestoSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header Monospace Tag */}
         <ScrollReveal yOffset={16}>
-          <div className="mb-10">
+          <div className="mb-10 text-center sm:text-left">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 font-mono text-xs font-semibold tracking-widest text-[#38BDF8] uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" />
               {MANIFESTO_DATA.sectionNumber}
@@ -22,7 +22,7 @@ export const ManifestoSection: React.FC = () => {
         {/* 2-Column Split Editorial Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           {/* Left Column: Big Headline & Tags */}
-          <ScrollReveal delay={0.1} className="lg:col-span-6 flex flex-col">
+          <ScrollReveal delay={0.1} className="flex flex-col text-center sm:text-left lg:col-span-6">
             <h2
               id="manifesto-title"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.12] mb-8"
@@ -35,7 +35,7 @@ export const ManifestoSection: React.FC = () => {
             </h2>
 
             {/* Badges row: [PRESENÇA] [DESIGN] [TECNOLOGIA] [ESTRATÉGIA] */}
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap justify-center gap-2.5 sm:justify-start">
               {MANIFESTO_DATA.pills.map((pill, idx) => (
                 <span
                   key={idx}
@@ -48,7 +48,7 @@ export const ManifestoSection: React.FC = () => {
           </ScrollReveal>
 
           {/* Right Column: Editorial Body Copy */}
-          <ScrollReveal delay={0.2} className="lg:col-span-6 flex flex-col gap-6 text-[#94A3B8] text-base sm:text-lg leading-relaxed pt-2">
+          <ScrollReveal delay={0.2} className="flex flex-col gap-6 pt-2 text-left text-base leading-relaxed text-[#94A3B8] sm:text-lg lg:col-span-6">
             <p className="leading-relaxed">
               A <strong className="text-white font-semibold tracking-wide">GOMES STUDIO</strong> nasceu para criar páginas e experiências digitais que apresentam empresas, produtos e serviços com profissionalismo.
             </p>

@@ -12,7 +12,7 @@ export const AboutSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Tag */}
         <ScrollReveal yOffset={16}>
-          <div className="mb-12">
+          <div className="mb-10 text-center sm:mb-12 sm:text-left">
             <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#38BDF8] uppercase">
               {ABOUT_DATA.sectionNumber}
             </span>
@@ -25,7 +25,7 @@ export const AboutSection: React.FC = () => {
           <ScrollReveal delay={0.1} className="lg:col-span-6 flex flex-col">
             <h2
               id="sobre-title"
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-10"
+              className="mb-8 text-center text-3xl font-bold leading-tight tracking-tight text-white sm:text-left sm:text-4xl lg:mb-10 lg:text-5xl"
             >
               Design que conecta, soluções que impulsionam.
             </h2>
@@ -50,7 +50,7 @@ export const AboutSection: React.FC = () => {
           </ScrollReveal>
 
           {/* Right Column: Editorial Narrative & Quotation */}
-          <ScrollReveal delay={0.2} className="lg:col-span-6 flex flex-col gap-6 text-[#94A3B8] text-base sm:text-lg leading-relaxed">
+          <ScrollReveal delay={0.2} className="flex flex-col gap-6 text-left text-base leading-relaxed text-[#94A3B8] sm:text-lg lg:col-span-6">
             <p>{ABOUT_DATA.p1}</p>
             <p>{ABOUT_DATA.p2}</p>
 
