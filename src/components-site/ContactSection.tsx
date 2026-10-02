@@ -52,7 +52,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Direct Info */}
-          <ScrollReveal delay={0.1} className="lg:col-span-5 flex flex-col">
+          <ScrollReveal delay={0.1} className="flex flex-col text-center sm:text-left lg:col-span-5">
             <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#38BDF8] uppercase mb-3 block">
               {CONTACT_DATA.sectionNumber}
             </span>
@@ -64,7 +64,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
               {CONTACT_DATA.headline}
             </h2>
 
-            <p className="text-base sm:text-lg text-[#94A3B8] mb-6 leading-relaxed">
+            <p className="mb-6 text-left text-base leading-relaxed text-[#94A3B8] sm:text-lg">
               {CONTACT_DATA.subtext}
             </p>
 
@@ -73,14 +73,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
               href={briefingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="action-glass action-glass-primary group mb-10 inline-flex min-h-14 w-full items-center justify-center gap-3 px-7 text-xs font-bold uppercase sm:w-auto sm:px-9 sm:text-sm"
+              className="action-glass action-glass-primary group mb-10 inline-flex min-h-14 w-full items-center justify-center gap-3 px-7 text-xs font-bold uppercase sm:w-auto sm:self-start sm:px-9 sm:text-sm"
             >
               <span>Iniciar meu projeto</span>
               <ArrowRight className="action-glass-icon h-4 w-4 shrink-0 transition-transform duration-500 group-hover:translate-x-1" />
             </a>
 
             {/* Direct Contact Cards with <a> tags */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 text-left">
               {/* WhatsApp Direct */}
               <a
                 id="contact-direct-whatsapp"
@@ -141,7 +141,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
           {/* Right Column: Interactive WhatsApp Quote Form */}
           <ScrollReveal delay={0.2} className="lg:col-span-7">
             <div className="p-8 sm:p-10 rounded-2xl bg-[#12151C] border border-white/[0.08] shadow-2xl relative">
-              <div className="mb-8">
+              <div className="mb-8 text-center sm:text-left">
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
                   Contato rápido pelo WhatsApp
                 </h3>

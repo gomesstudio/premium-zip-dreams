@@ -54,7 +54,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onImageClick }) 
           </ScrollReveal>
 
           {/* Right Column: Riangle-style Editorial Narrative */}
-          <ScrollReveal delay={0.2} className="lg:col-span-7 flex flex-col items-start">
+          <ScrollReveal delay={0.2} className="flex flex-col items-center text-center lg:col-span-7 lg:items-start lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141824] border border-white/10 text-xs font-mono text-[#38BDF8] mb-4 uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{FOUNDER_DATA.sectionNumber}</span>
@@ -62,7 +62,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onImageClick }) 
 
             <h2
               id="fundador-title"
-              className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-3"
+              className="mb-3 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
               {FOUNDER_DATA.titlePrefix}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#38BDF8] via-[#60A5FA] to-[#0066FF]">
@@ -78,7 +78,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onImageClick }) 
               {FOUNDER_DATA.role} • {FOUNDER_DATA.location}
             </p>
 
-            <div className="flex flex-col gap-6 text-base sm:text-lg text-[#94A3B8] leading-relaxed">
+            <div className="flex max-w-3xl flex-col gap-6 text-left text-base leading-relaxed text-[#94A3B8] sm:text-lg">
               <p>{FOUNDER_DATA.bio1}</p>
               <p>{FOUNDER_DATA.bio2}</p>
             </div>

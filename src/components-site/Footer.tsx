@@ -5,9 +5,9 @@ export const Footer: React.FC = () => {
   return (
     <footer id="site-footer" className="border-t border-white/[0.08] bg-[#07090C]/80 backdrop-blur-md py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-white/[0.06]">
+        <div className="flex flex-col items-center justify-between gap-8 border-b border-white/[0.06] pb-12 text-center md:flex-row md:text-left">
           {/* Brand & Slogan */}
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center md:items-start">
             <a
               id="footer-logo"
               href="#inicio"
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
           <nav
             id="footer-navigation"
             aria-label="Navegação do Rodapé"
-            className="flex flex-wrap items-center gap-6 sm:gap-8"
+            className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:justify-end"
           >
             {NAV_ITEMS.map((item) => (
               <a
@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom copyright and location info */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#64748B]">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 text-center font-mono text-xs text-[#64748B] sm:flex-row sm:text-left">
           <p>© 2026 GOMES STUDIO. Todos os direitos reservados.</p>
           <p>Nanuque - MG • Desenvolvido com excelência por Gomes Studio</p>
         </div>

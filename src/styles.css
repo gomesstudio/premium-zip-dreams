@@ -308,9 +308,12 @@ html {
 }
 
 .hero-title {
+  margin-inline: auto;
   max-width: 20ch;
   color: var(--copy);
   letter-spacing: 0;
+  text-align: center;
+  text-wrap: stable;
   text-shadow: 0 8px 34px color-mix(in oklab, var(--ink) 76%, transparent);
   animation: hero-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -327,6 +330,8 @@ html {
 .hero-subtitle {
   color: var(--copy-muted);
   letter-spacing: 0;
+  text-align: center;
+  text-wrap: pretty;
   animation: hero-reveal 0.8s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -536,6 +541,7 @@ html {
   .hero-tech-cross-b { top: 61%; right: 4%; }
   .hero-title {
     max-width: 20ch;
+    text-wrap: balance;
   }
   .hero-title-line {
     white-space: normal;
