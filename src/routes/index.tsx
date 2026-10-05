@@ -22,15 +22,50 @@ const TITLE = "Gomes Studio | Design Digital & Soluções Web Premium";
 const DESCRIPTION =
   "Estúdio especializado em landing pages, páginas profissionais e experiências digitais que apresentam empresas, produtos e serviços com clareza e personalidade.";
 
+const SITE_URL = "https://gomesstudio.lovable.app/";
+const SHARE_IMAGE = "https://gomesstudio.lovable.app/assets/brand/gomes-studio-logo.png";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:site_name", content: "Gomes Studio" },
+      { property: "og:locale", content: "pt_BR" },
+      { property: "og:image", content: SHARE_IMAGE },
+      { property: "og:image:alt", content: "Logo da Gomes Studio" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: SHARE_IMAGE },
+    ],
+    links: [{ rel: "canonical", href: SITE_URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Gomes Studio",
+          url: SITE_URL,
+          image: SHARE_IMAGE,
+          description: DESCRIPTION,
+          email: "gomes.studio.ai@gmail.com",
+          telephone: "+55 33 99103-1052",
+          founder: { "@type": "Person", name: "Lucas Gomes" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Nanuque",
+            addressRegion: "MG",
+            addressCountry: "BR",
+          },
+        }),
+      },
     ],
   }),
   component: Index,
