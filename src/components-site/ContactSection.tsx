@@ -250,9 +250,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService }
                     onChange={(e) => setService(e.target.value)}
                     className="w-full px-4 py-3 rounded-lg bg-[#0F1218] border border-white/10 text-white text-sm focus:outline-none focus:border-[#0066FF] focus:ring-1 focus:ring-[#0066FF] transition-all cursor-pointer"
                   >
-                    <option value="Landing Page Essencial">Landing Page Essencial</option>
-                    <option value="Landing Page Profissional">Landing Page Profissional</option>
-                    <option value="Página Profissional Completa">Página Profissional Completa</option>
+                    <option value="Plano Essencial">Plano Essencial — R$ 490,00</option>
+                    <option value="Plano Profissional">Plano Profissional — R$ 690,00</option>
+                    <option value="Plano Premium">Plano Premium — R$ 890,00</option>
+                    <option value="Serviços adicionais">Serviços adicionais (artes, imagens, vídeo, identidade)</option>
+                    <option value="Manutenção mensal">Manutenção mensal</option>
                   </select>
                 </div>
 
