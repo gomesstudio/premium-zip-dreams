@@ -5,9 +5,8 @@ export const Footer: React.FC = () => {
   return (
     <footer id="site-footer" className="border-t border-white/[0.08] bg-[#07090C]/80 backdrop-blur-md py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-8 border-b border-white/[0.06] pb-12 text-center md:flex-row md:text-left">
-          {/* Brand & Slogan */}
-          <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-center border-b border-white/[0.06] pb-10 text-center">
+          <div className="flex flex-col items-center">
             <a
               id="footer-logo"
               href="#inicio"
@@ -28,33 +27,6 @@ export const Footer: React.FC = () => {
               DESIGN QUE CONECTA, SOLUÇÕES QUE IMPULSIONAM.
             </p>
           </div>
-
-          {/* Navigation Links using <a> tags */}
-          <nav
-            id="footer-navigation"
-            aria-label="Navegação do Rodapé"
-            className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:justify-end"
-          >
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.id}
-                id={`footer-link-${item.id}`}
-                href={item.href}
-                className="text-xs font-mono text-[#94A3B8] hover:text-[#38BDF8] transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              id="footer-link-whatsapp"
-              href="https://wa.me/5533991031052"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-mono text-[#10B981] hover:text-[#34D399] transition-colors"
-            >
-              WhatsApp
-            </a>
-          </nav>
         </div>
 
         {/* Bottom copyright and location info */}
