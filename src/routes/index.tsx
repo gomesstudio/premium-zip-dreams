@@ -74,7 +74,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
-  const [selectedService, setSelectedService] = useState<string>("Landing Page Profissional");
+  const [selectedService, setSelectedService] = useState<string>("Plano Profissional");
 
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState("");
