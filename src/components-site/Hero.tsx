@@ -39,7 +39,7 @@ export const Hero: React.FC<HeroProps> = () => {
             id="hero-subtitle"
             className="hero-subtitle mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed sm:mt-7 sm:text-lg lg:text-xl"
           >
-            Landing Pages <span aria-hidden="true">·</span> Páginas Profissionais <span aria-hidden="true">·</span> Experiências Digitais
+            Sites <span aria-hidden="true">·</span> Páginas Profissionais <span aria-hidden="true">·</span> Experiências Digitais
           </p>
 
           <a
