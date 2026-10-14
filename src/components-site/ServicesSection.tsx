@@ -205,7 +205,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                       </span>
                     )}
                     <span className="font-mono text-xs font-semibold uppercase tracking-widest text-[#64748B]">
-                      Plano {p.name}
+                      {p.name === 'Essencial'
+                        ? 'SITE\u00a0ESSENCIAL'
+                        : p.name === 'Profissional'
+                          ? 'SITE\u00a0PROFISSIONAL'
+                          : 'SITE PREMIUM'}
                     </span>
                     <div className="mt-4 flex items-baseline gap-1 text-white">
                       <span className="text-lg font-semibold text-[#94A3B8]">R$</span>
