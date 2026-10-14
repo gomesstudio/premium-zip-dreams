@@ -18,12 +18,12 @@ import { ImageModal } from "../components-site/ImageModal";
 import { ProjectDetailModal } from "../components-site/ProjectDetailModal";
 import type { ProjectItem } from "../types";
 
-const TITLE = "Gomes Studio | Design Digital & Soluções Web Premium";
+const TITLE = "Gomes Studio | Criação de Sites Profissionais";
 const DESCRIPTION =
-  "Estúdio especializado em landing pages, páginas profissionais e experiências digitais que apresentam empresas, produtos e serviços com clareza e personalidade.";
+  "Criamos sites profissionais para valorizar seu negócio, apresentar seus serviços e facilitar o contato com seus clientes pelo WhatsApp.";
 
-const SITE_URL = "https://gomesstudio.lovable.app/";
-const SHARE_IMAGE = "https://gomesstudio.lovable.app/assets/brand/gomes-studio-logo.png";
+const SITE_URL = "https://sitegomesstudio.gomes-studio.workers.dev/";
+const SHARE_IMAGE = "https://sitegomesstudio.gomes-studio.workers.dev/og-image.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -38,7 +38,10 @@ export const Route = createFileRoute("/")({
       { property: "og:site_name", content: "Gomes Studio" },
       { property: "og:locale", content: "pt_BR" },
       { property: "og:image", content: SHARE_IMAGE },
-      { property: "og:image:alt", content: "Logo da Gomes Studio" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:alt", content: "Logo da Gomes Studio — Criação de Sites Profissionais" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
