@@ -50,7 +50,7 @@ export const ManifestoSection: React.FC = () => {
           {/* Right Column: Editorial Body Copy */}
           <ScrollReveal delay={0.2} className="flex flex-col gap-6 pt-2 text-left text-base leading-relaxed text-[#94A3B8] sm:text-lg lg:col-span-6">
             <p className="leading-relaxed">
-              A <strong className="text-white font-semibold tracking-wide">GOMES STUDIO</strong> nasceu para criar páginas e experiências digitais que apresentam empresas, produtos e serviços com profissionalismo.
+              A <strong className="text-white font-semibold tracking-wide">GOMES STUDIO</strong> nasceu para criar sites e experiências digitais que apresentam empresas, produtos e serviços com profissionalismo.
             </p>
             <p className="leading-relaxed">
               Unimos clareza, personalidade e estratégia para construir uma presença digital capaz de valorizar cada negócio e facilitar novas oportunidades.
