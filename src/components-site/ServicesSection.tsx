@@ -181,7 +181,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
           <ScrollReveal>
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <span className={eyebrow}>PLANOS DE CRIAÇÃO</span>
-              <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Escolha o plano ideal.</h3>
+              <h3 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Escolha o site ideal.</h3>
               <p className="mt-4 text-sm text-[#94A3B8] sm:text-base">
                 Pagamento único pela criação e publicação do site.
               </p>
