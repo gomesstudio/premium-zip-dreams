@@ -1,9 +1,8 @@
 import React from 'react';
-import { NAV_ITEMS } from '../data/content';
 
 export const Footer: React.FC = () => {
   return (
-    <footer id="site-footer" className="border-t border-white/[0.08] bg-[#07090C]/80 backdrop-blur-md py-16">
+    <footer id="site-footer" className="border-t border-white/[0.08] bg-[#07090C]/80 backdrop-blur-md py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center border-b border-white/[0.06] pb-10 text-center">
           <div className="flex flex-col items-center">
@@ -30,7 +29,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom copyright and location info */}
-        <div className="flex flex-col items-center justify-between gap-4 pt-8 text-center font-mono text-xs text-[#64748B] sm:flex-row sm:text-left">
+        <div className="flex flex-col items-center justify-center gap-2 pt-8 text-center font-mono text-xs text-[#64748B]">
           <p>© 2026 GOMES STUDIO. Todos os direitos reservados.</p>
           <p>Nanuque - MG • Desenvolvido com excelência por Gomes Studio</p>
         </div>
