@@ -1,170 +1,113 @@
-import React from 'react';
-import { ArrowRight, ExternalLink, Eye, Image as ImageIcon } from 'lucide-react';
-import { PROJECTS_DATA } from '../data/content';
-import { ProjectItem } from '../types';
+import { useEffect, useRef, useState } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { PORTFOLIO_PROJECTS } from '../data/portfolio';
+import type { ProjectItem } from '../types';
 import { ScrollReveal } from './ScrollReveal';
+import { createPortfolioPlayback } from './portfolio-playback';
 
 interface ProjectsSectionProps {
-  onImageClick: (imageSrc: string, title: string, codeSnippet?: string) => void;
-  onSelectProject: (project: ProjectItem) => void;
+  onImageClick?: (imageSrc: string, title: string, codeSnippet?: string) => void;
+  onSelectProject?: (project: ProjectItem) => void;
 }
 
-export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
-  onImageClick,
-  onSelectProject,
-}) => {
+export function ProjectsSection(_props: ProjectsSectionProps) {
+  const [viewportRef, api] = useEmblaCarousel({ loop: true, align: 'center', duration: 30 });
+  const sectionRef = useRef<HTMLElement>(null);
+  const playbackRef = useRef<ReturnType<typeof createPortfolioPlayback> | null>(null);
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!api || !section) return;
+    const player = createPortfolioPlayback(() => api.scrollNext());
+    playbackRef.current = player;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onSelect = () => setActive(api.selectedScrollSnap());
+    const onVisibility = () => player.pause('hidden', document.hidden);
+    const onMotion = () => {
+      player.pause('reduced', reduced.matches);
+      api.reInit({ duration: reduced.matches ? 0 : 30 });
+    };
+    const onPointerDown = () => player.pause('drag', true);
+    const onPointerUp = () => player.pause('drag', false);
+    player.pause('outside', true);
+    const observer = new IntersectionObserver(([entry]) => {
+      player.pause('outside', !entry?.isIntersecting);
+    }, { threshold: 0.25 });
+    observer.observe(section);
+    api.on('select', onSelect).on('reInit', onSelect).on('pointerDown', onPointerDown).on('pointerUp', onPointerUp);
+    document.addEventListener('visibilitychange', onVisibility);
+    reduced.addEventListener('change', onMotion);
+    onVisibility(); onMotion(); onSelect();
+    return () => {
+      player.destroy(); playbackRef.current = null; observer.disconnect();
+      api.off('select', onSelect).off('reInit', onSelect).off('pointerDown', onPointerDown).off('pointerUp', onPointerUp);
+      document.removeEventListener('visibilitychange', onVisibility);
+      reduced.removeEventListener('change', onMotion);
+    };
+  }, [api]);
+
+  const navigate = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') api?.scrollPrev(); else api?.scrollNext();
+    playbackRef.current?.reset();
+  };
+
   return (
-    <section
-      id="projetos"
-      className="py-24 sm:py-32 border-t border-white/[0.08] relative bg-transparent"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section id="projetos" ref={sectionRef} className="portfolio-section relative py-24 sm:py-32" aria-labelledby="projetos-title">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="mb-12 flex flex-col gap-5 text-center sm:mb-16 sm:text-left md:flex-row md:items-end md:justify-between md:gap-8">
-            <div className="min-w-0">
-              <span className="font-mono text-xs sm:text-sm font-semibold tracking-widest text-[#38BDF8] uppercase mb-3 block">
-                02 // PROJETOS SELECIONADOS
-              </span>
-              <h2
-                id="projetos-title"
-                className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"
-              >
-                Experiências criadas com precisão.
-              </h2>
-            </div>
-            <p className="mx-auto max-w-md text-left text-base font-normal leading-relaxed text-[#94A3B8] sm:mx-0 md:text-right">
-              Algumas das experiências digitais que podemos criar para marcas que querem se destacar no mercado.
-            </p>
-          </div>
+          <header className="mx-auto mb-10 max-w-2xl text-center sm:mb-14">
+            <span className="mb-3 block font-mono text-xs font-semibold text-brand-bright sm:text-sm">02 // PROJETOS SELECIONADOS</span>
+            <h2 id="projetos-title" className="text-3xl font-bold text-copy sm:text-4xl lg:text-5xl">Projetos</h2>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-copy-muted">Conheça alguns projetos que desenvolvemos para transformar marcas em experiências digitais.</p>
+          </header>
         </ScrollReveal>
-
-        {/* 3-Column Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {PROJECTS_DATA.map((project, idx) => (
-            <ScrollReveal key={project.id} delay={idx * 0.1} className="h-full">
-              <article
-                id={`project-card-${project.id}`}
-                className="group flex flex-col h-full bg-[#101420]/80 backdrop-blur-md rounded-2xl border border-white/10 hover:border-[#38BDF8]/60 transition-all duration-300 overflow-hidden hover:shadow-[0_0_35px_rgba(0,102,255,0.25)]"
-              >
-              {/* Project Image Frame with Relative Path tag */}
-              <div className="relative aspect-[16/10] bg-[#0E1117] border-b border-white/[0.06] overflow-hidden p-3 flex items-center justify-center">
-                {/* Live Status Badge */}
-                {project.liveUrl && (
-                  <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 border border-[#10B981]/40 text-[#10B981] text-[10px] font-mono font-semibold backdrop-blur-md shadow-lg pointer-events-none">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-                    <span>AO VIVO</span>
-                  </div>
-                )}
-
-                {/* Standard HTML <img> with relative path */}
-                <img
-                  src={project.relativeImagePath}
-                  alt={`Mockup do projeto ${project.title}`}
-                  className={`w-full h-full rounded-md transition-transform duration-700 group-hover:scale-105 ${
-                    project.relativeImagePath.endsWith('.jpg') || project.relativeImagePath.endsWith('.png')
-                      ? 'object-cover'
-                      : 'object-contain'
-                  }`}
-                  loading="lazy"
-                />
-
-                {/* Hover overlay with Direct Site Link & Image Preview */}
-                <div className="absolute inset-0 bg-black/75 backdrop-blur-[4px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col sm:flex-row items-center justify-center gap-2.5 p-4 z-20">
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#38BDF8] text-white text-xs font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] hover:scale-105 transition-all cursor-pointer"
-                      title="Abrir site oficial ao vivo"
-                    >
-                      <ExternalLink className="w-4 h-4 shrink-0" />
-                      <span>Ver Site Criado</span>
-                    </a>
-                  ) : null}
-
-                  <button
-                    onClick={() =>
-                      onImageClick(
-                        project.relativeImagePath,
-                        project.title,
-                        `<a href="${project.href}">\n  <img src="${project.relativeImagePath}" alt="${project.title}" />\n</a>`
-                      )
-                    }
-                    className="w-full sm:w-auto px-3.5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold flex items-center justify-center gap-1.5 border border-white/20 hover:border-[#38BDF8]/50 transition-all cursor-pointer"
-                    title="Ver imagem em alta resolução"
-                  >
-                    <Eye className="w-3.5 h-3.5" />
-                    <span>Visualizar Foto</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Project Details */}
-              <div className="p-6 flex flex-col flex-1">
-                {/* Category & Number Header */}
-                <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                  <span className="font-semibold text-[#38BDF8] uppercase tracking-wider">
-                    {project.category}
-                  </span>
-                  <span className="text-[#64748B] font-bold">
-                    {project.number}
-                  </span>
-                </div>
-
-                {/* Project Title */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#38BDF8] transition-colors">
-                  {project.title}
-                </h3>
-
-                {/* Description */}
-                <p className="mb-6 flex-1 text-left text-sm leading-relaxed text-[#94A3B8]">
-                  {project.description}
-                </p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-6">
-                  {project.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2.5 py-1 rounded bg-[#181C26] text-[11px] font-mono text-[#94A3B8] border border-white/[0.04]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Link using <a> tag */}
-                <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
-                  <a
-                    id={`project-cta-${project.id}`}
-                    href={project.href}
-                    target={project.isExternal ? '_blank' : undefined}
-                    rel={project.isExternal ? 'noopener noreferrer' : undefined}
-                    className="inline-flex items-center gap-2 text-xs font-mono font-semibold tracking-wider text-white hover:text-[#38BDF8] transition-colors group-link"
-                  >
-                    <span>{project.ctaLabel}</span>
-                    {project.isExternal ? (
-                      <ExternalLink className="w-3.5 h-3.5 text-[#38BDF8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    ) : (
-                      <ArrowRight className="w-3.5 h-3.5 text-[#0066FF] group-hover:translate-x-1 transition-transform" />
-                    )}
+        <div
+          className="portfolio-carousel relative"
+          role="region" aria-roledescription="carrossel" aria-label="Sites desenvolvidos pela Gomes Studio"
+          onMouseEnter={() => { if (window.matchMedia('(hover: hover)').matches) playbackRef.current?.pause('hover', true); }}
+          onMouseLeave={() => playbackRef.current?.pause('hover', false)}
+          onFocusCapture={() => playbackRef.current?.pause('focus', true)}
+          onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) playbackRef.current?.pause('focus', false); }}
+          onKeyDown={(event) => {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+              event.preventDefault(); navigate(event.key === 'ArrowLeft' ? 'prev' : 'next');
+            }
+          }}
+        >
+          <div className="portfolio-viewport" ref={viewportRef}>
+            <div className="portfolio-track">
+              {PORTFOLIO_PROJECTS.map((project, index) => (
+                <div key={project.id} className="portfolio-slide" role="group" aria-roledescription="slide" aria-label={`${index + 1} de ${PORTFOLIO_PROJECTS.length}`} data-active={active === index}>
+                  <a className="portfolio-project group block" href={project.url} target="_blank" rel="noopener noreferrer" aria-label={`Visitar projeto ${project.name}`}>
+                    <div className="portfolio-image-frame relative aspect-video overflow-hidden rounded-lg border border-copy/15 bg-ink">
+                      <img src={project.image} alt={`Página inicial do site ${project.name}`} width={1920} height={1080} loading="lazy" decoding="async" className="h-full w-full object-cover" />
+                      <span className="portfolio-image-overlay absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 px-4 py-3 text-xs font-medium text-copy" aria-hidden="true">
+                        <span>Visitar projeto</span><ArrowUpRight className="size-4 shrink-0" />
+                      </span>
+                    </div>
+                    <div className="flex min-h-20 items-start justify-between gap-3 px-1 pt-5">
+                      <h3 className="min-w-0 text-sm font-semibold leading-relaxed text-copy sm:text-base">{project.name}</h3>
+                      <ArrowUpRight className="mt-1 size-4 shrink-0 text-brand-bright" aria-hidden="true" />
+                    </div>
                   </a>
-
-                  <button
-                    onClick={() => onSelectProject(project)}
-                    className="text-xs font-mono text-[#64748B] hover:text-[#94A3B8] underline cursor-pointer"
-                  >
-                    detalhes
-                  </button>
                 </div>
-              </div>
-            </article>
-          </ScrollReveal>
-        ))}
+              ))}
+            </div>
+          </div>
+          <Button variant="ghost" size="icon" className="portfolio-arrow portfolio-arrow-prev action-glass" aria-label="Projeto anterior" title="Projeto anterior" onClick={() => navigate('prev')}><ArrowLeft /></Button>
+          <Button variant="ghost" size="icon" className="portfolio-arrow portfolio-arrow-next action-glass" aria-label="Próximo projeto" title="Próximo projeto" onClick={() => navigate('next')}><ArrowRight /></Button>
+          <div className="mt-4 flex h-11 items-center justify-center gap-5">
+            <div className="flex items-center gap-2" aria-hidden="true">
+              {PORTFOLIO_PROJECTS.map((project, index) => <span key={project.id} className="portfolio-marker" data-active={index === active} />)}
+            </div>
+            <Button variant="ghost" size="icon" className="text-copy-muted hover:bg-copy/5 hover:text-copy" aria-label={paused ? 'Retomar reprodução automática' : 'Pausar reprodução automática'} title={paused ? 'Retomar reprodução automática' : 'Pausar reprodução automática'} aria-pressed={paused} onClick={() => { playbackRef.current?.pause('user', !paused); setPaused(!paused); }}>{paused ? <Play /> : <Pause />}</Button>
+          </div>
         </div>
       </div>
     </section>
   );
-};
+}
