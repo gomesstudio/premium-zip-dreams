@@ -335,6 +335,28 @@ html {
   animation: hero-reveal 0.8s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Nova composição da abertura, sem afetar a apresentação em vídeo. */
+.hero-title.hero-intro-title {
+  max-width: 22ch;
+  text-wrap: balance;
+  text-shadow: none;
+  animation: hero-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-intro-title .hero-title-accent {
+  white-space: normal;
+}
+
+.hero-intro-kicker {
+  justify-content: center;
+  letter-spacing: 0;
+}
+
+.hero-intro-actions .hero-cta {
+  letter-spacing: 0;
+  border-radius: 8px;
+}
+
 .hero-cta {
   letter-spacing: 0.08em;
   animation: hero-reveal 0.8s 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
