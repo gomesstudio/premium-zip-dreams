@@ -1,5 +1,8 @@
 import React from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown, MessageCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const WHATSAPP_URL = "https://wa.me/5533991031052?text=Ol%C3%A1%20Lucas!%20Vim%20pelo%20site%20da%20Gomes%20Studio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.";
 
 interface HeroProps {
   onImageClick: (imageSrc: string, title: string, codeSnippet?: string) => void;
@@ -13,7 +16,7 @@ export const Hero: React.FC<HeroProps> = () => {
   return (
     <section
       id="inicio"
-      className="hero-premium relative flex min-h-[100svh] flex-col overflow-hidden pt-24 sm:pt-28"
+      className="hero-premium relative flex min-h-[calc(100svh-3rem)] flex-col overflow-hidden pt-28 sm:pt-32"
     >
       <div className="hero-tech-field pointer-events-none absolute inset-0" aria-hidden="true">
         <span className="hero-tech-cross hero-tech-cross-a" />
@@ -21,38 +24,41 @@ export const Hero: React.FC<HeroProps> = () => {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="flex w-full flex-col items-center text-center">
-          <p className="hero-kicker mb-5 font-mono text-[10px] font-semibold uppercase sm:mb-6 sm:text-xs">
+        <div className="flex w-full flex-col items-center py-12 text-center sm:py-16">
+          <p className="hero-kicker hero-intro-kicker mb-6 font-mono text-[10px] font-semibold uppercase sm:mb-8 sm:text-xs">
             <span aria-hidden="true" />
-            Presença digital para negócios
+            GOMES STUDIO · EXPERIÊNCIAS DIGITAIS
           </p>
 
           <h1
             id="hero-title"
-            className="hero-title mx-auto w-full text-center text-[1.72rem] font-extrabold uppercase leading-[1.04] sm:text-[3.35rem] lg:text-[4.35rem]"
+            className="hero-title hero-intro-title mx-auto w-full text-center text-4xl font-extrabold leading-[1.12] sm:text-5xl lg:text-7xl"
           >
-            <span className="hero-title-line">Quem se apresenta melhor,</span>
-            <span className="hero-title-line hero-title-accent">sai na frente.</span>
+            <span>Sua marca. Sua presença. </span>
+            <span className="hero-title-accent">Seu próximo nível.</span>
           </h1>
 
           <p
             id="hero-subtitle"
             className="hero-subtitle mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed sm:mt-7 sm:text-lg lg:text-xl"
           >
-            Sites <span aria-hidden="true">·</span> Páginas Profissionais <span aria-hidden="true">·</span> Experiências Digitais
+            Elevamos a apresentação do seu negócio com sites modernos e experiências digitais que fortalecem sua marca e conectam você a novas oportunidades.
           </p>
 
-          <a
-            id="hero-cta-solucoes"
-            href="#servicos"
-            className="hero-cta action-glass action-glass-primary group mt-8 inline-flex min-h-14 w-full items-center justify-center gap-3 px-7 text-xs font-bold uppercase sm:mt-9 sm:w-auto sm:px-9 sm:text-sm"
-          >
-            <span>Quero me destacar</span>
-            <ArrowRight
-              className="action-glass-icon h-4 w-4 shrink-0 transition-transform duration-500 group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </a>
+          <div className="hero-intro-actions mt-8 flex w-full max-w-sm flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+            <Button asChild variant="ghost" className="hero-cta action-glass action-glass-primary group min-h-14 gap-3 px-7 text-sm font-semibold sm:px-8">
+              <a id="hero-cta-solucoes" href="#projetos">
+                <span>Conheça nossos projetos</span>
+                <ArrowUpRight className="action-glass-icon transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </a>
+            </Button>
+            <Button asChild variant="ghost" className="hero-cta action-glass group min-h-14 gap-3 px-7 text-sm font-semibold sm:px-8">
+              <a id="hero-cta-contato" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="action-glass-icon" aria-hidden="true" />
+                <span>Vamos conversar</span>
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
 
