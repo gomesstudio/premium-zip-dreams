@@ -44,7 +44,7 @@ const PLANS = [
   {
     key: 'Plano Essencial',
     name: 'Essencial',
-    price: '490',
+    price: '460',
     description: 'Para apresentar seu negócio de forma profissional.',
     items: ['Site com até 4 seções', 'Design para celular e computador', 'Botões de WhatsApp e redes sociais'],
     details: [
@@ -58,7 +58,7 @@ const PLANS = [
   {
     key: 'Plano Profissional',
     name: 'Profissional',
-    price: '690',
+    price: '680',
     description: 'Mais espaço para destacar seus serviços e diferenciais.',
     items: ['Tudo do plano Essencial', 'Site com até 7 seções', 'Galeria de fotos'],
     details: [
@@ -73,7 +73,7 @@ const PLANS = [
   {
     key: 'Plano Premium',
     name: 'Premium',
-    price: '890',
+    price: '880',
     description: 'Uma apresentação mais completa e personalizada.',
     items: ['Tudo do plano Profissional', 'Site com até 10 seções', 'Design mais personalizado'],
     details: [
