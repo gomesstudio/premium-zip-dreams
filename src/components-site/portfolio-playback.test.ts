@@ -1,3 +1,4 @@
+/// <reference types="bun" />
 import { describe, expect, test } from 'bun:test';
 import { createPortfolioPlayback } from './portfolio-playback';
 import { PORTFOLIO_PROJECTS } from '../data/portfolio';
