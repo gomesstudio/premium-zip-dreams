@@ -105,6 +105,7 @@ export const BrandFilm: React.FC<HeroProps> = () => {
               playsInline
               preload="metadata"
               controls
+              loop
               controlsList="nodownload"
               className="hero-video-media block h-full w-full object-contain"
               aria-label="Vídeo comercial de apresentação da logo Gomes Studio"
