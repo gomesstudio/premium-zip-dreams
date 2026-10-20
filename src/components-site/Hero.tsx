@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = () => {
   return (
     <section
       id="inicio"
-      className="hero-premium relative flex min-h-[calc(100svh-3rem)] flex-col overflow-hidden pt-28 sm:pt-32"
+      className="hero-premium relative flex min-h-[100svh] flex-col overflow-hidden pt-24 sm:min-h-[calc(100svh-3rem)] sm:pt-32"
     >
       <div className="hero-tech-field pointer-events-none absolute inset-0" aria-hidden="true">
         <span className="hero-tech-cross hero-tech-cross-a" />
@@ -24,7 +24,7 @@ export const Hero: React.FC<HeroProps> = () => {
       </div>
 
       <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="flex w-full flex-col items-center py-12 text-center sm:py-16">
+        <div className="flex w-full flex-col items-center py-8 text-center sm:py-16">
           <p className="hero-kicker hero-intro-kicker mb-6 font-mono text-[10px] font-semibold uppercase sm:mb-8 sm:text-xs">
             <span aria-hidden="true" />
             GOMES STUDIO · EXPERIÊNCIAS DIGITAIS
@@ -34,7 +34,8 @@ export const Hero: React.FC<HeroProps> = () => {
             id="hero-title"
             className="hero-title hero-intro-title mx-auto w-full text-center text-4xl font-extrabold leading-[1.12] sm:text-5xl lg:text-7xl"
           >
-            <span>Sua marca. Sua presença. </span>
+            <span className="hero-intro-phrase">Sua marca. </span>
+            <span className="hero-intro-phrase">Sua presença. </span>
             <span className="hero-title-accent">Seu próximo nível.</span>
           </h1>
 

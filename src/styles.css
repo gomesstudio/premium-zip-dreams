@@ -559,6 +559,14 @@ html {
 }
 
 @media (max-width: 639px) {
+  .hero-title.hero-intro-title {
+    font-size: 2rem;
+    line-height: 1.16;
+  }
+  .hero-intro-title .hero-intro-phrase,
+  .hero-intro-title .hero-title-accent {
+    display: block;
+  }
   .hero-tech-cross-a { top: 24%; left: 4%; }
   .hero-tech-cross-b { top: 61%; right: 4%; }
   .hero-title {
